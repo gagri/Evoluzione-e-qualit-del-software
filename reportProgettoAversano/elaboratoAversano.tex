@@ -1,0 +1,47 @@
+\documentclass[a4paper, oneside]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage{caption}
+\begin{document}
+
+\lstset{language=bash,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    keywordstyle=\color{black},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{black},
+    commentstyle=\color{black},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{sudo, add, wget, systemctl, start, status, apt, key, get,]},emphstyle=[1]\color{black}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\input{frontespizio}
+\date{} 
+\maketitle
+
+\tableofcontents
+\input{1.obiettivo}
+\input{2.introduzione}
+\input{3.tools}
+\input{4.analisi_dati}
+\input{5.conclusioni}
+
+
+
+\end{document}
