@@ -1,1 +1,31 @@
 \chapter{Obbiettivo}
+L'obbiettivo dell'elaborato consiste nell'analizzare i sistemi riportati in \autoref{tabella_sistemi} e di osservare come la presenza di cloni costituisca un peggioramento che impatta sul technical debt e sulla presenza di code smells.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Nome Progetto & Versione \\ \hline
+Jabref & 4.3 \\ \cline{2-2}
+& 4.2\\ \cline{2-2}
+& 4.1\\ \cline{2-2}
+& 4.0\\ \hline
+DnsJava & 2.1.8 \\ \cline{2-2}
+& 2.1.7\\ \cline{2-2}
+& 2.1.6\\ \cline{2-2}
+& 2.1.5\\ \hline
+Fastjson & 1.2.50 \\ \cline{2-2}
+& 1.2.40\\ \cline{2-2}
+& 1.2.30\\ \cline{2-2}
+& 1.2.20\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Progetti e relative versioni considerati per l'analisi.}
+\label{tabella_sistemi}
+\end{table}
+\\Verrà effettuato un confronto tra le classi contententi cloni e classi in cui non sono presenti cloni e si confronteranno i risultati ottenuti. Gli strumenti usati a supporto dell'analisi sono i seguenti.
+\begin{itemize}
+\item Nicad4.
+\item SonarCloud.
+\item Parser python creati ad hoc.
+\end{itemize}
