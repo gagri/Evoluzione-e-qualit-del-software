@@ -1,0 +1,61 @@
+I parser vanno invocati in questo ordine:
+
+1)
+
+PARSER : ParserXml.py
+
+DESCRIZIONE : va invocato piu' volte sui vari file xml del progetto da analizzare (il data.csv e' unico per progetto)
+
+INPUT: nicad.xml,versione,tipoDiClone
+
+OUTPUT: data.csv
+
+2)
+
+PARSER : ParserCsv.py
+
+DESCRIZIONE : serve a togliere i cloni che nicad ha preso piu' volte come tipi diversi
+
+INPUT: data.csv
+
+OUTPUT: datiParsati.csv	
+
+3)
+
+PARSER : ParserDebt.py
+
+DESCRIZIONE : serve a prelevare il technical debt ottenuto da sonar
+
+INPUT: debt.txt,versione		Il file txt dove sono stati copiati i technical debt delle varie classi dall'analisi di sonarcloud e la versione del progetto
+
+OUTPUT: datiDebt.csv
+
+4)
+
+PARSER : ParserSmell.py
+
+DESCRIZIONE : associa i code smell alle classi a cui e' gia' stato assegnato il technical debt
+
+INPUT: datiDebt.csv,Smell.txt		Il file csv output di ParserDebt.py e il txt che contiene i code smell prelevati da sonar per quella versione del progetto
+
+OUTPUT: datiDebtSmell.csv		Il file sintetizza le informazioni delle varie versioni del progetto in analisi, viene creato la prima volta poi gli si aggiunge il resto
+
+5)
+
+PARSER : ParserFinale.py
+
+DESCRIZIONE : mette insieme i dati di nicad e di sonar
+
+INPUT: datiParsati.csv,datiDebtSmell.csv
+
+OUTPUT: datiFinali.csv
+
+6)
+
+PARSER : ContatoreClassi.py
+
+DESCRIZIONE : effettua il conteggio delle classi che contengono cloni, dato che una classe puo' contenere piu' cloni, in questo modo e' possibile risalire al numero totale delle classi coinvolte e vedere quanti cloni contiene una singola classe.
+
+INPUT: datiFinali.csv
+
+OUTPUT: datiFinaliOccorrenze.csv
