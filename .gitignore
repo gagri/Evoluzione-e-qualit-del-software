@@ -2,3 +2,7 @@
 *.class
 reportProgettoAversano/*.pdf
 reportProgettoAversano/*.synctex.gz
+reportProgettoAversano/*.aux
+reportProgettoAversano/*.log
+reportProgettoAversano/*.toc
+reportProgettoAversano/*.out
