@@ -82,7 +82,7 @@ A questo punto è possibile creare un nuovo progetto. E necessario specificare i
 Una volta creato il progetto, sarà mostrata una pagina che chiederà se si vuole generare un nuovo token oppure utilizzarne uno esistente. Il token è necessario al file di identificare l'utente che lancia l'analisi. L'associazione tra le informazioni (ossia organizzazione, chiave del progetto e token) e utente autorizzato a lanciare l'analisi, viene effettuata attraverso il file \textit{sonar-project.properties} che deve essere presente all'interno del progetto. In particolare le informazioni contenute risultano essere le seguenti:
 \begin{itemize}
 	\item 	sonar.projectKey: chiave del progetto
-	\item 		sonar.organization: nome dell'organizzazione
+	\item 	sonar.organization: nome dell'organizzazione
 	\item 	sonar.host.url: nel caso in cui si utilizza sonarCloud è necessario specificare l'URL di quest'ultimo ossia \url{https://sonarcloud.io}. Nel caso di utilizzo di SonarQube in locale, bisognerebbe specificare \url{http://localhost:9000}
 	\item 	sonar.login: token fornito in fase di creazione del progetto
 	\item sonar.sources: directory contenete i sorgenti

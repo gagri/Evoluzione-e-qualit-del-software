@@ -5,4 +5,6 @@ reportProgettoAversano/*.synctex.gz
 reportProgettoAversano/*.aux
 reportProgettoAversano/*.log
 reportProgettoAversano/*.toc
+reportProgettoAversano/*.lof
+reportProgettoAversano/*.lot
 reportProgettoAversano/*.out
