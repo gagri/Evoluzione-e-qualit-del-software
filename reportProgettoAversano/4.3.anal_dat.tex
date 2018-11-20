@@ -179,6 +179,18 @@ La stessa analisi è stata effettuata prendendo in considerazione il technical d
 	\end{itemize}
 \end{itemize}
 Si nota quindi che il tempo necessario per gestire e quindi manutenere una classe in cui sono presenti dei cloni è più alto rispetto al caso in cui nella classe non risultano presenti i cloni stessi. Al fine di validare tale risultato, è stata effettuata un'analisi ulteriore. In particolare, per ogni versione di ogni progetto è stato considerato il rapporto tra code smell e techical debt. I risultati ottenuti sono i seguenti:
+%%%ANALISI RAPPORTO%%%%
+\begin{itemize}
+	\item in DnsJava, come mostrato in \autoref{fig:rapDnsJava}, il rapporto tra technical debt e code smell è pari a circa 4 minuti nel caso di file senza cloni e a 5 nel caso di file con cloni in tutte e tre le versioni;
+	\item in JabRef, come mostrato in \autoref{fig:rapJabRef}, il rapporto risulta circa pari a 4 nel caso di file senza cloni in tutte e tre le versioni. Nel caso di file con cloni
+	\item in FastJson, come mostrato in \autoref{fig:tdFastjson}:
+	\begin{itemize}
+		\item nella versione 1.2.20 in media, il techical debt è di 130 minuti nei file senza cloni e 655 in quelli con i cloni;
+		\item nella versione 1.2.30 in media, il techical debt è di 124 minuti nei file senza cloni e 727 minuti in quelli con i cloni;
+		\item nella versione 1.2.40 in media, il techical debt è di 122 minuti nei file senza cloni e 1047 in quelli con i cloni;
+		\item nella versione 1.2.50 in media, il techical debt è di 125 minuti nei file senza cloni e 1143 in quelli con i cloni;
+	\end{itemize}
+\end{itemize}
 
 \begin{figure}[h]
 	\centering
