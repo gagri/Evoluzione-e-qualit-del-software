@@ -2,10 +2,10 @@
 NiCad Clone Detector è uno strumento scalabile e flessibile per l'individuzione dei cloni basato su Txl progettato per implementare il NiCad hybrid clone detection method.
 
 Quest'ultimo è un metodo ibrido che combina language-sensitive parsing con language-independent similarity analysis per produrre cloni significativi.
-Il metodo comprende tre fasi principali, il parsing, la normalizzazione e il confronto.
-Nella prima fase le sorgenti input vengono parsate per poter estrarre tutti i frammenti, come ad esempio funzioni o blocchi, di una data granularità. Ogni frammento estratto è un potenziale clone e su di esse vengono effettuate alcune operazioni: spaziature e interruzioni linee vengono normalizzati e i commenti vengono rimossi. 
+Il metodo comprende tre fasi principali: il parsing, la normalizzazione e il confronto.
+Nella prima fase le sorgenti di input vengono parsate per poter estrarre tutti i frammenti, come ad esempio funzioni o blocchi, di una data granularità. Ogni frammento estratto è un potenziale clone e su di esso vengono effettuate alcune operazioni: spaziature e interruzioni linee vengono normalizzati e i commenti vengono rimossi. 
 Nella seconda fase , i frammenti estratti possono essere normalizzati, filtrati o astratti prima del confronto. Ad esempio possono essere trasformati rinominandoli o rimuomendo le dichiarazioni.
-Nell'ultima fase, i frammenti normalizzati ed estratti sono confrontati a livello lineare usando un algoritmo LCS (longest common Subsequence) ottimizzato per rilevare i frammenti simili, ovvero cloni. Il confronto è parametrizzato da una soglia di differenza che consente un rilevamento più o meno accurato. Ad esempio una soglia di differenza 0.0 rileva solo i cloni esatti, 0.1 rileva quelli che possono differire del 10\%, 0.2 fino al 20\% e così via.
+Nell'ultima fase, i frammenti normalizzati ed estratti sono confrontati a livello lineare usando un algoritmo LCS (Longest Common Subsequence) ottimizzato per rilevare i frammenti simili, ovvero cloni. Il confronto è parametrizzato da una soglia di differenza che consente un rilevamento più o meno accurato. Ad esempio una soglia di differenza 0.0 rileva solo i cloni esatti, 0.1 rileva quelli che possono differire del 10\%, 0.2 fino al 20\% e così via.
 
 Nicad Clone detector è un'implementazione open source del metodo NiCad progettato per essere flessibile, estensibile e incorporabile negli IDE e nelle altre applicazioni. è progettato per essere utilizzato via linea di comando Linux, Solaris, Cygwin o MAc OSs scrivendo la granularità desiderata dell'elaborazione e la directory del sorgente da analizzare, per esempio: 
 
@@ -13,7 +13,7 @@ Nicad Clone detector è un'implementazione open source del metodo NiCad progetta
 \verb|nicad functions java examples/dnsjava-2.1.8|
 \end{center}
 
-Nicad supporta due granularità, funzioni (functions ) e blocchi (blocks) e cinque linguaggi, C, C\#, Java, Phyton e WSDL.
+Nicad supporta due granularità, ossia funzioni (functions ) e blocchi (blocks) e cinque linguaggi, C, C\#, Java, Phyton e WSDL.
 Di default Nicad effetta il confronto senza normalizzare, filtrare o ridenominare, trova semplicemente cloni esatti o near-miss a quattro soglie di differenza: 0.0, 0.1, 0.2, e 0.3 che corrisponde allo 0\%, 10\%, 20\% e 30\% di linee diverse nei frammenti estratti.
 L'output viene generato nella stessa crtella in cui è presente il sorgente, ed è un file XML e un HTML.
 Per specificare la normalizzazione, il filtraggio e la ridenominazione si aggiunge il nome del file di configurazione a linea di comando:
@@ -23,7 +23,7 @@ Per specificare la normalizzazione, il filtraggio e la ridenominazione si aggiun
 \end{center}
 
 In questo caso, andiamo ad utilizzare il file "type2.cfg".
-Questi file di configurazione consentono all'utente di specificare una gamma di opzioni, come ad esempio la dimensione massima o minima dei cloni, la ridenominazione o le normalizzazioni da eseguire. Ogni opzione specificata in questi file di configurazione invoca un plugin NiCad che viene eseguito prima del confronto tra i potenziali cloni. I plugin sono implementati in TXL, l'utente può infatti anche aggiungere nuove normalizzazioni programmandolecon questo linguaggio.
+Questi file di configurazione consentono all'utente di specificare una gamma di opzioni, come ad esempio la dimensione massima o minima dei cloni, la ridenominazione o le normalizzazioni da eseguire. Ogni opzione specificata in questi file di configurazione invoca un plugin NiCad che viene eseguito prima del confronto tra i potenziali cloni. I plugin sono implementati in TXL e l'utente può anche aggiungere nuove normalizzazioni programmandole con questo linguaggio.
 In NiCad è presente anche una modalità incrementale, nella quale un sistema già analizzato viene re-analizzato in modo da trovare solo i nuovi cloni, in modo da venire a conoscenza dei cloni nati con una nuova versione dello stesso software.
 
 

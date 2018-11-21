@@ -1,19 +1,19 @@
 \section{SonarCloud}\label{sonar}
- \href{https://sonarcloud.io}{\textbf{SonarCloud}} è il prodotto leader per la \textbf{Continuous Code Quality} online ed è completamente gratuito per progetti open-source. Supporta tutti i principali linguaggi di programmazione, inclusi Java, C\#, JavaScript, C/C++ e molti altri. \textbf{SonarCloud} offre integrazioni end-to-end per i team che sfruttano le seguenti soluzioni nei loro processi di sviluppo:
+\textbf{SonarCloud} \footnote{https://sonarcloud.io} è il prodotto leader per la \textbf{Continuous Code Quality} online ed è completamente gratuito per progetti open-source. Supporta tutti i principali linguaggi di programmazione, inclusi Java, C\#, JavaScript, C/C++ e molti altri. \textbf{SonarCloud} offre integrazioni end-to-end per i team che sfruttano le seguenti soluzioni nei loro processi di sviluppo:
 \begin{itemize}
 	\item GitHub
 	\item Bitbucket Cloud
 	\item Azure DevOps
 \end{itemize}
-Consente di effettuare le stesse analisi possibili in \href{https://www.sonarqube.org/}{SonarQube} senza però avere la necessità di installare il servizio in locale.
+Consente di effettuare le stesse analisi possibili in SonarQube \footnote{https://www.sonarqube.org/} senza però avere la necessità di installare il servizio in locale.
 \subsection{SonarQube runner}
 \textbf{SonarCloud} attualmente non triggera l'analisi automaticamente ma è necessario avviarla all'interno di uno script di \textbf{Continuous Integration} utilizzando uno tra i seguenti scanner disponibili:
 \begin{itemize}
-	\item Gradle - SonarScanner for Gradle
-	\item MSBuild - SonarScanner for MSBuild
-	\item Maven - use the SonarScanner for Maven
-	\item Ant - SonarScanner for Ant
-	\item anything else (CLI) - SonarScanner	
+	\item Gradle - SonarScanner per Gradle
+	\item MSBuild - SonarScanner per MSBuild
+	\item Maven - use the SonarScanner per Maven
+	\item Ant - SonarScanner per Ant
+	\item SonarScanner	
 \end{itemize}
 L'ultimo tra quelli elencati, \textbf{SonarScanner} può essere utilizzato quando nessuno degli altri risulta appropriato. La scelta è ricaduta su quest'ultimo visto che i progetti analizzati non utilizzano tutti lo stesso \textbf{build automation tool}. 
 \subsection{Installazione SonarQube runner}
@@ -42,13 +42,13 @@ Risulta poi fondamentale modificare il file di configurazione di \textbf{SonarSc
 \begin{verbatim}
 	sonar.host.url=https://sonarcloud.io
 \end{verbatim}
-Nel caso di utilizza di \textbf{SonarQube} in locale, il campo appena specificato dovrà essere modificato nel modo seguente:
+Nel caso di utilizzo di \textbf{SonarQube} in locale, il campo appena specificato dovrà essere modificato nel modo seguente:
 \begin{verbatim}
 sonar.host.url=http://localhost:9000
 \end{verbatim}
 
 \subsection{Configurazione SonarCloud}
-Affinché possa essere eseguita l'analisi è necessario configurare \textbf{SonarCloud}. Innanzitutto bisogna effettuare il log utilizzando l'account \textbf{gitHub} come mostrato in Figura \ref{fig:login}. Il secondo passo consiste nel creare una organizzazione, come mostrato in Figura \ref{fig:organizzazione}; si tratta di uno spazio all'interno del quale i membri di un team possono collaborare. Le organizzazioni possono essere create gratuitamente ma i progetti e le analisi risultano pubbliche. \'E possibile anche creare organizzazioni private ma non gratuitamente. Una volta creata un'organizzazione è possibile, come mostrato in Figura \ref{fig:membri}, aggiungere membri al team specificando l'indirizzo e-mail o il nome utente utilizzato in gitHub dal collaboratore, e creare nuovi progetti. Si mostrano in Figura \ref{fig:nostraOrg} i membri dell'organizzazione realizzata per il progetto in esame.
+Affinché possa essere eseguita l'analisi è necessario configurare \textbf{SonarCloud}. Innanzitutto bisogna effettuare il log utilizzando l'account \textbf{gitHub} come mostrato in \autoref{fig:login}. Il secondo passo consiste nel creare una organizzazione, come mostrato in \autoref{fig:organizzazione}; si tratta di uno spazio all'interno del quale i membri di un team possono collaborare. Le organizzazioni possono essere create gratuitamente ma i progetti e le analisi risultano pubbliche. \'E possibile anche creare organizzazioni private ma non gratuitamente. Una volta creata un'organizzazione è possibile, come mostrato in \autoref{fig:membri}, aggiungere membri al team specificando l'indirizzo e-mail o il nome utente utilizzato in gitHub dal collaboratore, e creare nuovi progetti. Si mostrano in \autoref{fig:nostraOrg} i membri dell'organizzazione realizzata per il progetto in esame.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=1, trim = 0cm 0cm 0cm 0cm, clip=true]{figSonarCloud/figLogInSonar.PNG}
@@ -76,7 +76,7 @@ Affinché possa essere eseguita l'analisi è necessario configurare \textbf{Sona
 	\caption{Organizzazione progetto in esame}
 	\label{fig:nostraOrg}
 \end{figure}
-A questo punto è possibile creare un nuovo progetto. E necessario specificare il nome dell'organizzazione, del progetto, che sarà lo stesso utilizzato in gitHub, ed una chiave che sarà univocamente assegnata a quel determinato progetto. Si mostra tale procedura in Figura \ref{fig:prog}.
+A questo punto è possibile creare un nuovo progetto. E necessario specificare il nome dell'organizzazione, del progetto, che sarà lo stesso utilizzato in gitHub, ed una chiave che sarà univocamente assegnata a quel determinato progetto. Si mostra tale procedura in \autoref{fig:prog}.
 
 \begin{figure}[htbp]
 	\centering
@@ -99,7 +99,7 @@ A questo punto, basta lanciare il comando
 \begin{verbatim}
 sonar-runner
 \end{verbatim}
-per avviare l'analisi ed una volta che questa è terminata il risultato sarà visualizzabile online come mostrato a titolo esemplificativo in Figura \ref{fig:analisi}.
+per avviare l'analisi ed una volta che questa è terminata il risultato sarà visualizzabile online come mostrato a titolo esemplificativo in \autoref{fig:analisi}.
 	
 \begin{figure}[htbp]
 	\centering
