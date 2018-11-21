@@ -9,15 +9,15 @@ Consente di effettuare le stesse analisi possibili in SonarQube \footnote{https:
 \subsection{SonarQube runner}
 \textbf{SonarCloud} attualmente non triggera l'analisi automaticamente ma è necessario avviarla all'interno di uno script di \textbf{Continuous Integration} utilizzando uno tra i seguenti scanner disponibili:
 \begin{itemize}
-	\item Gradle - SonarScanner per Gradle
-	\item MSBuild - SonarScanner per MSBuild
-	\item Maven - use the SonarScanner per Maven
-	\item Ant - SonarScanner per Ant
+	\item SonarScanner per Gradle
+	\item SonarScanner per MSBuild
+	\item SonarScanner per Maven
+	\item SonarScanner per Ant
 	\item SonarScanner	
 \end{itemize}
 L'ultimo tra quelli elencati, \textbf{SonarScanner} può essere utilizzato quando nessuno degli altri risulta appropriato. La scelta è ricaduta su quest'ultimo visto che i progetti analizzati non utilizzano tutti lo stesso \textbf{build automation tool}. 
-\subsection{Installazione SonarQube runner}
-\textbf{SonarQube runner} è stato utilizzato su una macchina Ubuntu $16.04$ seguendo i passi riportati per l'installazione:
+\subsection{Installazione SonarQube Scanner}
+\textbf{SonarQube scanner} è stato utilizzato su una macchina Ubuntu $16.04$ seguendo i passi riportati per l'installazione:
 \begin{itemize}
 	\item download dal maven repository utilizzando il seguente comando 
 	\begin{verbatim}
@@ -48,7 +48,7 @@ sonar.host.url=http://localhost:9000
 \end{verbatim}
 
 \subsection{Configurazione SonarCloud}
-Affinché possa essere eseguita l'analisi è necessario configurare \textbf{SonarCloud}. Innanzitutto bisogna effettuare il log utilizzando l'account \textbf{gitHub} come mostrato in \autoref{fig:login}. Il secondo passo consiste nel creare una organizzazione, come mostrato in \autoref{fig:organizzazione}; si tratta di uno spazio all'interno del quale i membri di un team possono collaborare. Le organizzazioni possono essere create gratuitamente ma i progetti e le analisi risultano pubbliche. \'E possibile anche creare organizzazioni private ma non gratuitamente. Una volta creata un'organizzazione è possibile, come mostrato in \autoref{fig:membri}, aggiungere membri al team specificando l'indirizzo e-mail o il nome utente utilizzato in gitHub dal collaboratore, e creare nuovi progetti. Si mostrano in \autoref{fig:nostraOrg} i membri dell'organizzazione realizzata per il progetto in esame.
+Affinché possa essere eseguita l'analisi è necessario configurare \textbf{SonarCloud}. Innanzitutto bisogna effettuare il log utilizzando l'account \textbf{gitHub} come mostrato in \autoref{fig:login}. Il secondo passo consiste nel creare un'organizzazione, come mostrato in \autoref{fig:organizzazione}, che sostanzialmente è uno spazio all'interno del quale i membri di un team possono collaborare. Le organizzazioni possono essere create gratuitamente ma i progetti e le analisi risultano pubbliche. \'E possibile anche creare organizzazioni private ma non gratuitamente. Una volta creata un'organizzazione è possibile, come mostrato in \autoref{fig:membri}, aggiungere membri al team specificando l'indirizzo e-mail o il nome utente utilizzato in gitHub dal collaboratore, e creare nuovi progetti. Si mostrano in \autoref{fig:nostraOrg} i membri dell'organizzazione realizzata per il progetto in esame.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=1, trim = 0cm 0cm 0cm 0cm, clip=true]{figSonarCloud/figLogInSonar.PNG}
@@ -76,7 +76,7 @@ Affinché possa essere eseguita l'analisi è necessario configurare \textbf{Sona
 	\caption{Organizzazione progetto in esame}
 	\label{fig:nostraOrg}
 \end{figure}
-A questo punto è possibile creare un nuovo progetto. E necessario specificare il nome dell'organizzazione, del progetto, che sarà lo stesso utilizzato in gitHub, ed una chiave che sarà univocamente assegnata a quel determinato progetto. Si mostra tale procedura in \autoref{fig:prog}.
+A questo punto è possibile creare un nuovo progetto. E necessario specificare il nome dell'organizzazione, del progetto (che sarà lo stesso utilizzato in gitHub), ed una chiave che sarà univocamente assegnata a quel determinato progetto. Si mostra tale procedura in \autoref{fig:prog}.
 
 \begin{figure}[htbp]
 	\centering

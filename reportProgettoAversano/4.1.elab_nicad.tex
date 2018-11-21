@@ -1,12 +1,16 @@
 \section{Elaborazione Dati Nicad}
-Nicad e' in grado di fornire una grande varieta' di dati, alcuni dei quali non sono stati presi in considerazione. Il principale obiettivo dello studio era, infatti, quello di verificare la quantita' di cloni all'interno di alcuni progetti open source, e comprendere, come questi, impattano negativamente sulla qualita' del software.
-La versione di Nicad utlizzata per le analisi e' la 5.0, rilasciata durante l'Ottobre del 2018. 
+Nicad e' in grado di fornire una grande varietà di dati, alcuni dei quali non sono stati presi in considerazione. Il principale obiettivo dello studio era, infatti, quello di verificare la quantità di cloni all'interno di alcuni progetti open source, e comprendere come questi impattano negativamente sulla qualità del software.
+La versione di Nicad utilizzata per le analisi e' la 5.0, rilasciata durante l'Ottobre del 2018. 
 Il tool Nicad e' stato invocato a linea di comando attraverso il comando:
-
+\begin{verbatim}
 ./nicad functions java directory/Sistema type1
-\\
-
-Dove il primo parametro indica il livello di granularita' a cui eseguire l'analisi. Il secondo indica il linguaggio in cui e' scritto il sistema sotto analisi, negli esempi sono stati utilizzati solo progetti basati su java. A seguito della directory del sistema vi e' il file di configurazione da utilizzare nell'analisi. In particolare consente di selezionare, ad esempio, il tipo di cloni da individuare.
+\end{verbatim}
+Si nota che:
+\begin{itemize}
+	\item il primo parametro indica il livello di granularità a cui eseguire l'analisi;
+	\item il secondo indica il linguaggio in cui è scritto il sistema sotto analisi, che in tutti gli esempi considerati è Java;
+	\item segue la directory del sistema e il file di configurazione da utilizzare nell'analisi. In particolare consente di selezionare, ad esempio, il tipo di cloni da individuare.
+\end{itemize}
 
 A seguito di successive invocazioni di questo comando sullo stesso progetto si sono ottenuti una serie di file XML. In particolare si e' scelto di effettuare un'analisi per ognuno dei tre tipi di cloni conosciuti, sfruttando tre file di configurazione gia' presenti in nicad. Questi file specificano il tipo di clone da individuare, andando a modificare in maniera opportuna alcuni dei parametri che sfrutta nicad nella sua analisi. Nicad ad ogni invocazione produce due file XML, uno che contiene le coppie di cloni, accompagnate da tutte le informazioni necessarie alla loro individuazione: un ID, la starline, la endline, il grado di similiarita' tra i due, ed altre. Il secondo file contiene lo stesso tipo di informazioni, ma riunisce i cloni per classi e non per singole coppie.
 \\
