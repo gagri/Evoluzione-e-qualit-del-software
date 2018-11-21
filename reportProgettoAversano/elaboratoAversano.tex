@@ -14,6 +14,7 @@
 \definecolor{mylilas}{RGB}{170,55,241}
 \usepackage{caption}
 \usepackage{tabularx}
+\usepackage{changepage}
 
 \begin{document}
 
@@ -33,14 +34,17 @@
     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
 
-\input{frontespizio}
+\input{0.copertina}
 \date{} 
-\maketitle
-
+\thispagestyle{empty}
 \tableofcontents
+\thispagestyle{empty}
 \listoffigures 
+\thispagestyle{empty}
 \listoftables
+\thispagestyle{empty}
 
+\setcounter{page}{0}
 \input{1.obiettivo}
 \input{2.introduzione}
 \input{3.tools}
