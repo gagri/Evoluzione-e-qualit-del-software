@@ -5,13 +5,13 @@ Nella prima fase le sorgenti di input vengono parsate per poter estrarre tutti i
 Nella seconda fase , i frammenti estratti possono essere normalizzati, filtrati o astratti prima del confronto. Ad esempio possono essere trasformati rinominandoli o rimuomendo le dichiarazioni.
 Nell'ultima fase, i frammenti normalizzati ed estratti sono confrontati a livello lineare usando un algoritmo LCS (Longest Common Subsequence) ottimizzato per rilevare i frammenti simili, ovvero cloni. Il confronto è parametrizzato da una soglia di differenza che consente un rilevamento più o meno accurato. Ad esempio, una soglia di differenza 0.0 rileva solo i cloni esatti, 0.1 rileva quelli che possono differire del 10\%, 0.2 fino al 20\% e così via.
 
-Nicad Clone detector è un'implementazione open source del metodo NiCad progettato per essere flessibile, estensibile e incorporabile negli IDE e nelle altre applicazioni. E'\ progettato per essere utilizzato via linea di comando Linux, Solaris, Cygwin o MAc OSs scrivendo la granularità desiderata dell'elaborazione e la directory del sorgente da analizzare, per esempio: 
+Nicad Clone detector è un'implementazione open source del metodo NiCad progettato per essere flessibile, estensibile e incorporabile negli IDE e nelle altre applicazioni. E'\ progettato per essere utilizzato via linea di comando Linux, Solaris, Cygwin o MAc OSs definendo la granularità desiderata dell'elaborazione e la directory del sorgente da analizzare, per esempio: 
 
 \begin{center}
 \verb|nicad functions java examples/dnsjava-2.1.8|
 \end{center}
 
-Nicad supporta due granularità, ossia funzioni (functions ) e blocchi (blocks) e cinque linguaggi, C, C\#, Java, Phyton e WSDL.
+Nicad supporta due granularità, ossia funzioni (functions ) e blocchi (blocks) e cinque linguaggi: C, C\#, Java, Phyton e WSDL.
 Di default Nicad effetta il confronto senza normalizzare, filtrare o ridenominare, trova semplicemente cloni esatti o near-miss a quattro soglie di differenza: 0.0, 0.1, 0.2, e 0.3 che corrisponde allo 0\%, 10\%, 20\% e 30\% di linee diverse nei frammenti estratti.
 L'output viene generato nella stessa crtella in cui è presente il sorgente, ed è un file XML e un HTML.
 Per specificare la normalizzazione, il filtraggio e la ridenominazione si aggiunge il nome del file di configurazione a linea di comando:
