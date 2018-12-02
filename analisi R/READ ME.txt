@@ -1,0 +1,1 @@
+i csv in questa cartella sono quelli che ho usato io e quindi è già stata modificata la colonna TD e aggiunta la colonna len
