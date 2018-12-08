@@ -48,7 +48,7 @@ sonar.host.url=http://localhost:9000
 \end{verbatim}
 
 \subsection{Configurazione SonarCloud}
-Affinché possa essere eseguita l'analisi è necessario configurare \textbf{SonarCloud}. Innanzitutto bisogna effettuare il log utilizzando l'account \textbf{gitHub} come mostrato in \autoref{fig:login}. Il secondo passo consiste nel creare un'organizzazione, come mostrato in \autoref{fig:organizzazione}, che sostanzialmente è uno spazio all'interno del quale i membri di un team possono collaborare. Le organizzazioni possono essere create gratuitamente ma i progetti e le analisi risultano pubbliche. \'E possibile anche creare organizzazioni private ma non gratuitamente. Una volta creata un'organizzazione è possibile, come mostrato in \autoref{fig:membri}, aggiungere membri al team specificando l'indirizzo e-mail o il nome utente utilizzato in gitHub dal collaboratore, e creare nuovi progetti. Si mostrano in \autoref{fig:nostraOrg} i membri dell'organizzazione realizzata per il progetto in esame.
+Affinché possa essere eseguita l'analisi è necessario configurare \textbf{SonarCloud}. Innanzitutto bisogna effettuare il log-in utilizzando l'account \textbf{gitHub} come mostrato in \autoref{fig:login}. Il secondo passo consiste nel creare un'organizzazione, come mostrato in \autoref{fig:organizzazione}, che sostanzialmente è uno spazio all'interno del quale i membri di un team possono collaborare. Le organizzazioni possono essere create gratuitamente ma i progetti e le analisi risultano pubbliche. \'E possibile anche creare organizzazioni private ma non gratuitamente. Una volta creata un'organizzazione è possibile, come mostrato in \autoref{fig:membri}, aggiungere membri al team specificando l'indirizzo e-mail o il nome utente utilizzato in gitHub dal collaboratore, e creare nuovi progetti. Si mostrano in \autoref{fig:nostraOrg} i membri dell'organizzazione realizzata per il progetto in esame.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=1, trim = 0cm 0cm 0cm 0cm, clip=true]{figSonarCloud/figLogInSonar.PNG}
@@ -108,4 +108,22 @@ per avviare l'analisi ed una volta che questa è terminata il risultato sarà vi
 	\label{fig:analisi}
 \end{figure}
 
-\textbf{SonarCloud}, al pari di \textbf{SonarQube}, consente di 
+\textbf{SonarCloud}, al pari di \textbf{SonarQube}, consente di visualizzare configurare i \textbf{Quality Profiles} e i \textbf{Quality Gates}, ossia l' insieme di regole che definiscano il livello di qualità che deve essere rispettato dal progetto in analisi. Nel caso in cui tali regole non siano rispettate, il risultato sarà il fallimento dell'analisi. E\' possibile utilizzare le regole di default. 
+
+\subsection{SonarCloud Web API}
+\textbf{SonarCloud} fornisce una Web API per recuperare le informazioni relative ad un determinato progetto, restituendole in formato JSON. L'API utilizza i classici metodi HTTP come GET , POST e DELETE per identificare il tipo di azione che deve essere realizzata. 
+
+A titolo esemplificativo si mostra una query di richiesta:
+\begin{verbatim}
+https://sonarcloud.io/api/measures/component_tree?component=keyJabref4.2&metricKeys=sqale_index&ps=100&p=1
+\end{verbatim}
+
+in cui:
+\begin{itemize}
+	\item component rappresenta la chiave del progetto
+	\item metricKeys indica la metrica che deve essere presa
+	\item ps indica la page size quindi il numero di elementi. Tale numero può essere cpmpreso tra 0 e 499
+	\item p indica la pagina. Ad esempio, per progetti di 1500 classi è necessario salvare prima i valori con $p=1$, poi con $p=2$ e poi con $p=3$ ogni volta con $ps=499$.
+\end{itemize}
+
+I dati ottenuti sono relativi al Technical Debt. Il parametro specificato è infatti sqale\_index che è appunto il metodo utilizzato per misurare il Technical Debt stesso. 
