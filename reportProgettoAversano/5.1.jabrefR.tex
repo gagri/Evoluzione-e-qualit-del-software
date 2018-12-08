@@ -1,0 +1,31 @@
+\section{Analisi statistica Jabref}
+Di seguito l'analisi statistica relativa al progetto \textbf{Jabref}.
+
+\subsection{Analisi Statistica Technical Debt}
+In \autoref{td-tipo} possiamo vedere la dimensione del technical debt rispetto alla tipologia di clone. È stato indicato con il valore zero le classi in cui il codice clonato è assente. Questa analisi statistica è confermata dal p-value, ottenuto con il test di Kruskal-Wallis mediante R, che ha un valore inferiore a $2,2 e^{-16}$.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{analisi_R/AnalisiJabref/1-gplot-td-type.png}
+\caption{Analisi statistica Technical Debt}
+\label{td-tipo}
+\end{figure}
+
+
+\subsection{Analisi Statistica Code Smells}
+In \autoref{codesmell-tipo} possiamo vedere la quantità di code smells rispetto alla tipologia di clone. È stato indicato con il valore zero le classi in cui il codice clonato è assente. Questa analisi statistica è confermata dal p-value, ottenuto con il test di Kruskal-Wallis mediante R, che ha un valore inferiore a $2,2 e^{-16}$.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{analisi_R/AnalisiJabref/2-gplot-codesmell-type.png}
+\caption{Analisi statistica Code Smell}
+\label{codesmell-tipo}
+\end{figure}
+
+
+\subsection{Analisi Statistica Lunghezza Codice Clonato}
+In \autoref{len-tipo} possiamo vedere la lunghezza del codice clonato (espressa in LOC) rispetto alla tipologia di clone. Questa analisi statistica è confermata dal p-value, ottenuto con il test di Kruskal-Wallis mediante R, che ha un valore inferiore a $2,2 e^{-16}$. \newpage
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{analisi_R/AnalisiJabref/3-gplot-len-type.png}
+\caption{Analisi statistica Lunghezza Codice Clonato }
+\label{len-tipo}
+\end{figure}
