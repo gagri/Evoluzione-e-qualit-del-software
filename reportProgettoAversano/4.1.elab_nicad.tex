@@ -1,24 +1,21 @@
 \section{Elaborazione Dati Nicad}
-Nicad è in grado di fornire una grande varietà di dati, alcuni dei quali non sono stati presi in considerazione. Il principale obiettivo dello studio era, infatti, quello di verificare la quantità di cloni all'interno di alcuni progetti open source, e comprendere come questi impattano negativamente sulla qualità del software.
-La versione di Nicad utilizzata per le analisi è la 5.0, rilasciata durante l'Ottobre del 2018. 
-Il tool è stato invocato a linea di comando attraverso il comando:
+Le informazioni relative al codice clonato sono state estratte mediante l'uso di Nicad. Il tool è stato invocato a linea di comando attraverso il comando:
 \begin{verbatim}
 ./nicad functions java directory/Sistema type1
 \end{verbatim}
 Si nota che:
 \begin{itemize}
 	\item il primo parametro indica il livello di granularità a cui eseguire l'analisi;
-	\item il secondo indica il linguaggio in cui è scritto il sistema sotto analisi, che in tutti gli esempi considerati è Java;
-	\item segue il path del progetto e il file di configurazione da utilizzare nell'analisi. Quest'ultimo serve a specificare il tipo di clone da individuare.
+	\item il secondo parametro indica il linguaggio in cui è scritto il sistema sotto analisi;
+	\item il terzo parametro specifica il path del progetto
+	\item il quarto parametro indica il file di configurazione da utilizzare nell'analisi.
 \end{itemize}
-
-A seguito di successive invocazioni dello comando sullo stesso progetto, si sono ottenuti una serie di file XML. In particolare, si è scelto di effettuare un'analisi per ognuno dei tre tipi di cloni conosciuti, sfruttando tre file di configurazione già presenti in nicad. Questi file specificano il tipo di clone da individuare, andando a modificare in maniera opportuna alcuni dei parametri che sfrutta il tool nella sua analisi. Nicad ad ogni invocazione produce due file XML:
+Il file di configurazione consente di specificare il tipo di clone da individuare. Facendo variare il file di configurazione è stato possibile ottenere, come output, dei file XML relativi ai diversi tipi di cloni. Nicad ad ogni invocazione produce due file XML:
 \begin{itemize}
-	\item uno di questi contiene le coppie di cloni, accompagnate da tutte le informazioni necessarie alla loro individuazione: un ID, la starline, la endline, il grado di similarità tra i due, ed altre;
-	\item l'altro file contiene lo stesso tipo di informazioni, ma riunisce i cloni per classi e non per singole coppie.
+	\item il primo contiene le coppie di cloni accompagnate da una serie di informazioni tra cui: un ID, la startline, la endline, etc;
+	\item il secondo file contiene lo stesso tipo di informazioni, ma riunisce i cloni per classi e non per singole coppie.
 \end{itemize}
-Ricapitolando: ogni invocazione del tool sul sistema da analizzare, esso produce un file XML contenente tutte le classi di cloni di un particolare tipo, per questo motivo ai fini delle analisi di interesse, si è proceduto ad una triplice invocazione su ogni versione di ogni progetto analizzato, una per ogni tipo di clone presente nella versione.
-A partire da questa collezione di file XML si è proceduto a costruire un file CSV che fosse in grado di riassumere tutte le informazioni desiderate. Tale operazione è stata effettuata attraverso un parser ad hoc, ParserXML.py, che preleva le informazioni d'interesse. In particolare sono state selezionate le seguenti informazioni riguardo al clone:
+A partire da questa collezione di file XML si è proceduto a costruire un file CSV che fosse in grado di riassumere tutte le informazioni desiderate. Tale operazione è stata effettuata attraverso un parser\footnote{ParserXML.py} che preleva le informazioni d'interesse, in particolare sono state estratte le seguenti informazioni:
 \begin{itemize}
 \item l'identificativo della classe
 \item l'identificativo del singolo clone
@@ -27,5 +24,5 @@ A partire da questa collezione di file XML si è proceduto a costruire un file C
 \item la endline
 \item e la similarità
 \end{itemize} 
-\'E stata aggiunta anche la versione del sistema analizzato e il tipo di clone. 
-Il secondo parser utilizzato, ParserCSV.py, serve ad eliminare gli errori di classificazione che commette Nicad nel corso delle sue analisi. Quest'ultimo infatti tende a classificare alcuni cloni come afferenti a più tipi. Ad esempio, può classificare un clone di tipo 1 anche come clone di tipo 2 e 3. Volendo evitare la loro ripetizione all'interno del file CSV, si è proceduto ad utilizzare il ParserCSV.py, il quale identifica i cloni ripetuti e li elimina dal tipo superiore. Ad esempio, se un clone viene identificato come tipo 1 e 2, il parser procede all'eliminazione del clone di tipo 2, conservando quelli di tipo 1.
+È stata aggiunta anche la versione del sistema analizzato e il tipo di clone. 
+È stato creato un ulteriore parser\footnote{ParserCSV.py} che consente di rimuovere gli errori di classificazione commessi da Nicad. Quest'ultimo, infatti, tende a classificare alcuni cloni come afferenti a più tipi. Ad esempio, può classificare un clone di tipo 1 anche come clone di tipo 2 e 3. Il parser identifica i cloni ripetuti e li elimina dal tipo superiore. Ad esempio, se un clone viene identificato come tipo 1 e 2 il parser procede all'eliminazione del clone di tipo 2.

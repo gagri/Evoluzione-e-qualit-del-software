@@ -1,5 +1,5 @@
 \section{Analisi dei Dati}
-La prima analisi effettuata sui dati ricavati dall'elaborazione dei risultati ottenuti da \textbf{Nicad} e da \textbf{SonarCloud} ha riguardato il numero di cloni sulle $4$ versioni di ogni progetto. I risultati hanno evidenziato che al crescere della versione la presenza di cloni aumenta, in particolare:
+La prima analisi che è stata effettuata sui dati ricavati dall'elaborazione dei risultati ottenuti da \textbf{Nicad} e \textbf{SonarQube} ha riguardato il numero di cloni sulle $4$ versioni di ogni progetto. I risultati hanno evidenziato che al crescere della versione la presenza di cloni aumenta, in particolare:
 \begin{itemize}
 	\item in \textbf{DnsJava}, come mostrato in \autoref{fig:nCloniDnsJava}, si hanno $146$ cloni nelle versioni $2.1.5$ e $2.1.6$, $147$ nella versione $2.1.7$ e $151$ nella $2.1.8$;
 	\item in \textbf{Jabref}, come mostrato in \autoref{fig:nCloniJabRef}, si hanno $336$ nella versione $4.0$, $353$ nella $4.1$, $228$ nella $4.2$ e $357$ nella versione $4.3$;
@@ -23,9 +23,9 @@ La prima analisi effettuata sui dati ricavati dall'elaborazione dei risultati ot
 	\caption{Analisi numero cloni FastJson}
 	\label{fig:nCloniFastjson}
 \end{figure}
-Si nota dunque che l'unico dato anomalo si ha sulla versione $4.2$ di JabRef in cui il numero di cloni diminuisce rispetto alla versione precedente. Questo risultato non va però ad inficiare il trend verificato nelle analisi degli altri progetti in quanto si nota che nella versione $4.3$ vi è non solo un aumento rispetto alla versione $4.2$, ma addirittura un incremento rispetto a tutte le precedenti versioni. 
+Si nota, dunque, che l'unico dato anomalo si ha sulla versione $4.2$ di JabRef in cui il numero di cloni diminuisce rispetto alla versione precedente. Questo risultato non va però ad inficiare il trend verificato nelle analisi degli altri progetti in quanto si nota che nella versione $4.3$ vi è non solo un aumento rispetto alla versione $4.2$, ma addirittura un incremento rispetto a tutte le precedenti versioni. 
 
-La seconda analisi ha riguardato il \textbf{numero di cloni di ogni tipo} per le $4$ versioni di ciascuno dei progetti presi in considerazione. In linea di massima il numero di cloni di tipo $3$ è sempre maggiore rispetto a quello dei cloni di tipo $1$ e $2$. In particolare si ha che:
+La seconda analisi ha riguardato il \textbf{numero di cloni di ogni tipo} per le $4$ versioni di ciascuno dei progetti presi in considerazione. In linea di massima il numero di cloni di tipo $3$ è sempre maggiore rispetto a quello dei cloni di tipo $1$ e $2$. In particolare:
 \begin{itemize}
 	\item in \textbf{DnsJava}, come mostrato in \autoref{fig:tipiCloniDnsJava}, si hanno:
 		\begin{itemize}
@@ -49,7 +49,7 @@ La seconda analisi ha riguardato il \textbf{numero di cloni di ogni tipo} per le
 		\item versione $1.2.50$: 313 cloni di tipo 1,154 cloni di tipo 2, 918 di tipo 3;		
 	\end{itemize}
 \end{itemize}
-Quello che si nota è che, in tutti i progetti analizzati, il numero di cloni di tipo 3 è predominante. I cloni di tipo 2 sono maggiori rispetto a quelli di tipo 1 tranne che in \textbf{FastJson}, essendo quest'ultima una libreria.
+Quello che si nota è che in tutti i progetti analizzati il numero di cloni di tipo 3 è predominante. I cloni di tipo 2 sono maggiori rispetto a quelli di tipo 1 tranne che in \textbf{FastJson} essendo quest'ultima una libreria.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/TipiCloni.png}
@@ -69,7 +69,7 @@ Quello che si nota è che, in tutti i progetti analizzati, il numero di cloni di
 	\label{fig:tipiCloniFastjson}
 \end{figure}
 
-Procedendo nell'analisi è stato individuato il numero di file in cui sono presenti cloni differenziandoli, quindi, da quelli in cui i cloni non compaiono:
+Procedendo nell'analisi è stato individuato il numero di file con e senza cloni:
 \begin{itemize}
 	\item in \textbf{DnsJava}, come mostrato in \autoref{fig:percentualeDnsJava} si hanno:
 	\begin{itemize}
@@ -93,7 +93,7 @@ Procedendo nell'analisi è stato individuato il numero di file in cui sono prese
 		\item versione 1.2.50: 598 file con cloni e 2047 senza cloni;
 	\end{itemize}
 \end{itemize}
-A partire dai dati raccolti sono state considerate le percentuali di file con cloni e senza cloni; è stato osservato che si ha una maggiore percentuale di file senza cloni. La minore percentuale di file con cloni sul totale si ha in jabRef.
+La minore percentuale di file con cloni sul totale si ha in jabRef.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/PercentualeFileCloni.png}
@@ -112,7 +112,7 @@ A partire dai dati raccolti sono state considerate le percentuali di file con cl
 	\caption{Analisi percentuale file con e senza cloni FastJson}
 	\label{fig:percentualeFastjson}
 \end{figure}
-Si è proceduto all'analisi della presenza di code smell nei file con e senza cloni considerando i valori medi. In particolare:
+Si è proceduto all'analisi della presenza di code smell nei file con e senza cloni considerando i valori medi. Si è visto che nei file contenenti cloni il numero medio di code smell è in generale maggiore rispetto al caso in cui il file non contiene i cloni. In particolare:
 \begin{itemize}
 	\item in DnsJava, come mostrato in \autoref{fig:codeSmellDnsJava}:
 	\begin{itemize}
@@ -136,7 +136,7 @@ Si è proceduto all'analisi della presenza di code smell nei file con e senza cl
 		\item versione 1.2.50: in media, il numero di code smell è 30 nei file senza cloni e 184 in quelli con i cloni;
 	\end{itemize}
 \end{itemize}
-Si è visto che nei file contenenti cloni il numero medio di code smell è in generale maggiore rispetto al caso in cui il file non contiene i cloni stessi. La differenza risulta maggiormente evidente in \textbf{FastJson}.
+La differenza risulta maggiormente evidente in \textbf{FastJson}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/CodeSmells.png}
@@ -179,14 +179,14 @@ La stessa analisi è stata effettuata prendendo in considerazione il technical d
 		\item versione 1.2.50: in media, il techical debt è di 125 minuti nei file senza cloni e 1143 in quelli con i cloni;
 	\end{itemize}
 \end{itemize}
-Si nota che il tempo necessario per gestire, e quindi manutenere una classe in cui sono presenti dei cloni, è più alto rispetto al caso in cui nella classe non è presente il codice clonato. Al fine di validare tale risultato è stata effettuata un'ulteriore analisi. In particolare, per ogni versione di ogni progetto, è stato considerato il rapporto tra code smell e techical debt. I risultati ottenuti sono i seguenti:
+Si nota che il tempo necessario per gestire e quindi per manutenere una classe in cui sono presenti dei cloni è più alto rispetto al caso in cui nella classe non risultano presenti i cloni. Al fine di validare tale risultato è stata effettuata un'ulteriore analis. In particolare, per ogni versione di ogni progetto, è stato considerato il rapporto tra code smell e techical debt. I risultati ottenuti sono i seguenti:
 %%%ANALISI RAPPORTO%%%%
 \begin{itemize}
 	\item in DnsJava, come mostrato in \autoref{fig:rapDnsJava}, il rapporto tra technical debt e code smell è pari a circa 4 minuti nel caso di file senza cloni e a 5 nel caso di file con cloni in tutte e tre le versioni;
 	\item in JabRef, come mostrato in \autoref{fig:rapJabRef}, il rapporto risulta circa pari a 4 nel caso di file senza cloni in tutte e tre le versioni. Nel caso di file con cloni il rapporto risulta circa pari a 7 nelle versioni 4.0 , 4.1 e 4.3 mentre risulta pari a 8 nel caso della versione 4.2;
 	\item in FastJson, come mostrato in \autoref{fig:rapFastjson} il rapporto risulta essere pari a circa 4 minuti nel caso di file senza cloni e a 5 minuti nel caso di file con cloni in tutte e 4 le versioni.
 \end{itemize}
-I risultati hanno evidenziato che la presenza di cloni influisce sia sulla quantità di code smell che sul technical debt mostrando che i cloni impattano sulla presenza di altri code smell.
+I risultati evidenziano che la presenza di cloni influisce sia sulla quantità di code smell che sul technical debt mostrando, quindi, che i cloni stessi impattano sulla presenza di altri code smells.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/TechnicalDebt.png}
@@ -207,21 +207,22 @@ I risultati hanno evidenziato che la presenza di cloni influisce sia sulla quant
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/Debt-Smell.png}
 	\caption{Rapporto $\frac{code smell}{technical debt}$ file con e senza cloni DnsJava}
 	\label{fig:rapDnsJava}	
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_jabRef/Debt-Smells.png}
 	\caption{Rapporto $\frac{code smell}{technical debt}$ file con e senza cloni JabRef}
 	\label{fig:rapJabRef}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_fastJson/Debt-Smell.png}
 	\caption{Rapporto $\frac{code smell}{technical debt}$ file con e senza cloni FastJson}
 	\label{fig:rapFastjson}
 \end{figure}
+\newpage

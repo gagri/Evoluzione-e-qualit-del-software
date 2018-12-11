@@ -1,5 +1,5 @@
 \section{Code Smell}
-Nell’Ingegneria del Software il termine Code Smell indica codice sorgente che, nonostante funzionante, presenta delle imperfezioni logiche che ne riducono la qualità. Il termine è stato coniato per la prima volta da Kent Beck. Quando ci si accinge a progettare un nuovo software è conveniente definirne una struttura facilmente comprensibile, in maniera tale da garantire  flessibilità in caso di aggiunte al codice da effettuare in un secondo momento. I Code Smells incrementano il Software decay, cioè il decadimento del software a causa della poca manutenzione effettuabile su di esso. La metodologia che permette la correzione di questi prende il nome di Refactoring. I code smell sono parti di codice sorgente caratterizzate da difetti di programmazione; non sono definibili come veri e propri errori. La loro presenza non causa problemi direttamente al funzionamento del software, però possono però rallentare la manutenzione del software e rendere difficile la  scoperta di bug. I code smell derivano da un’errata strutturazione del codice quando viene progettato/realizzato. SonarCloud consente, in base alle regole settate nel quality profile, individuare diverse tipologie di smells come, ad esempio:
+Nell’Ingegneria del Software il termine Code Smell indica codice sorgente che, nonostante sia funzionante, presenta delle imperfezioni logiche che ne riducono la qualità. Il termine è stato coniato per la prima volta da Kent Beck. Quando ci si accinge a progettare un nuovo software è conveniente definirne una struttura facilmente comprensibile, in maniera tale da garantire  flessibilità in caso di aggiunte al codice da effettuare in un secondo momento. I Code Smells incrementano il Software decay, cioè il decadimento del software a causa della poca manutenzione effettuabile su di esso. La metodologia che permette la correzione di questi prende il nome di Refactoring. I code smell sono parti di codice sorgente caratterizzate da difetti di programmazione; non sono definibili come veri e propri errori. La loro presenza non causa problemi direttamente al funzionamento del software, però possono però rallentare la manutenzione del software e rendere difficile la  scoperta di bug. I code smell derivano da un’errata strutturazione del codice quando viene progettato/realizzato. SonarCloud consente, in base alle regole settate nel quality profile, di individuare diverse tipologie di smells come ad esempio:
 \begin{itemize}
 \item "==" and "!=" should not be used when "equals" is overridden
 \item "@CheckForNull" or "@Nullable" should not be used on primitive types
@@ -7,12 +7,6 @@ Nell’Ingegneria del Software il termine Code Smell indica codice sorgente che,
 \item "@EnableAutoConfiguration" should be fine-tuned
 \item "@Import"s should be preferred to "@ComponentScan"s
 \item "@Override" should be used on overriding and implementing methods
-\item "action" mappings should not have too many "forward" entries
-\item "Arrays.stream" should be used for primitive arrays
-\item "catch" clauses should do more than rethrow
-\item "Class.forName()" should not load JDBC 4.0+ drivers
-\item "clone" should not be overridden
-\item "Cloneables" should implement "clone"
 \end{itemize}
 Ad ogni clone viene associato un diverso tipo di severità, in particolare si ha:
 \begin{enumerate}
