@@ -1,5 +1,15 @@
 \chapter{Obbiettivo}
-L'obbiettivo dell'elaborato consiste nell'analizzare i sistemi riportati in \autoref{tabella_sistemi} e di osservare come la presenza di cloni costituisca un peggioramento che impatta sul technical debt e sulla presenza di code smells.
+L'obbiettivo dell'elaborato consiste nell'analizzare i sistemi riportati in \autoref{tabella_sistemi} al fine di rispondere ai seguenti quesiti:
+\begin{enumerate}
+	\item Come varia il numero di cloni nelle versioni successive di uno stesso progetto?
+	\item Quale tipo di clone prevale?
+	\item Come sono distribuiti i cloni nel progetto?
+	\item Come variano i code smells nelle classi con e senza codice clonato?
+	\item Come varia il technical debt nelle classi con e senza codice clonato?
+	\item Quale è la relazione tra technical debt e code smells in classi con e senza cloni?
+	\item Il tipo del clone impatta sulla dimensione del clone stesso?
+	
+\end{enumerate}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \begin{table}[h]
 \begin{center}
@@ -24,7 +34,7 @@ Fastjson & 1.2.50 & 20 Agosto 2018 & 156k\\ \cline{2-4}
 \caption{Progetti e relative versioni considerati per l'analisi.}
 \label{tabella_sistemi}
 \end{table}
-\\Verrà effettuato un confronto tra classi contenenti cloni e classi in cui non sono presenti cloni e si confronteranno i risultati ottenuti. Gli strumenti usati a supporto dell'analisi sono i seguenti:
+Verrà effettuato un confronto tra classi contenenti cloni e classi in cui non sono presenti cloni e si confronteranno i risultati ottenuti. Gli strumenti usati a supporto dell'analisi sono i seguenti:
 \begin{itemize}
 \item Nicad4;
 \item SonarCloud;
