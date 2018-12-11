@@ -1,8 +1,8 @@
 \section{Elaborazione Dati SonarCloud}
 La quantità di informazioni e metriche fornite da SonarCloud risulta enorme rispetto a quelle che devono essere sfruttate al fine dell'analisi d'interesse. Per questo motivo a partire dalle analisi effettuate da SonarCloud si sono prelevate solo le due metriche d'interesse:
 \begin{itemize}
-	\item \textbf{Il Technical Debt} 
-	\item \textbf{I Code Smell}
+	\item \textbf{il Technical Debt} 
+	\item \textbf{i Code Smell}
 \end{itemize}
 Tali informazioni sono legate al singolo file del sistema, e per questo è possibile associarle all'analisi fornita da Nicad, nella quali ad ogni clone è associato il file in è presente il clone stesso. Per ogni sistema d'interesse, si è proceduto ad analizzare le versioni selezionate in maniera indipendente. Il prelievo effettivo delle informazioni è avvenuto attraverso un semplice copia e incolla su un file di testo. Si è preferito utilizzare questa procedura per via della semplicità di informazioni da recuperare, sebbene la WebAPI di SonarCloud consenta il prelievo di informazioni aggregate.
 In particolare sono stati creati due file testuali, uno contente la lista dei path dei file del sistema e il rispettivo Technical Debt, mentre l'altro associa i Code Smell ai path dei file. Attraverso due parser, ParserDebt.py e ParserSmell.py, è stato realizzato un file CSV che associa ad ogni file di ogni versione dei sistemi analizzati i corrispettivi Technical Debt e Code Smell.

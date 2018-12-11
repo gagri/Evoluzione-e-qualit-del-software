@@ -15,11 +15,11 @@ Consente di effettuare le stesse analisi possibili in SonarQube \footnote{https:
 	\item SonarScanner per Ant
 	\item SonarScanner	
 \end{itemize}
-L'ultimo tra quelli elencati, \textbf{SonarScanner} può essere utilizzato quando nessuno degli altri risulta appropriato. La scelta è ricaduta su quest'ultimo visto che i progetti analizzati non utilizzano tutti lo stesso \textbf{build automation tool}. 
+L'ultimo tra quelli elencati, \textbf{SonarScanner}, può essere utilizzato quando nessuno degli altri risulta appropriato. La scelta è ricaduta su quest'ultimo visto che i progetti analizzati non utilizzano tutti lo stesso \textbf{build automation tool}. 
 \subsection{Installazione SonarQube Scanner}
 \textbf{SonarQube scanner} è stato utilizzato su una macchina Ubuntu $16.04$ seguendo i passi riportati per l'installazione:
 \begin{itemize}
-	\item download dal maven repository utilizzando il seguente comando 
+	\item download dal maven repository utilizzando il seguente comando: 
 	\begin{verbatim}
 		wget 
 		http://repo1.maven.org/maven2/org/codehaus/
@@ -84,7 +84,7 @@ A questo punto è possibile creare un nuovo progetto. E necessario specificare i
 	\caption{Creazione progetto sonarCloud}
 	\label{fig:prog}
 \end{figure}
-Una volta creato il progetto, sarà mostrata una pagina che chiederà se si vuole generare un nuovo token oppure utilizzarne uno esistente. Il token è necessario al file di identificare l'utente che lancia l'analisi. L'associazione tra le informazioni (ossia organizzazione, chiave del progetto e token) e utente autorizzato a lanciare l'analisi, viene effettuata attraverso il file \textit{sonar-project.properties} che deve essere presente all'interno del progetto. In particolare, le informazioni contenute sono le seguenti:
+Una volta creato il progetto, sarà mostrata una pagina che chiederà se si vuole generare un nuovo token oppure utilizzarne uno esistente. Il token è necessario al file di identificare l'utente che lancia l'analisi. L'associazione tra le informazioni (ossia organizzazione, chiave del progetto e token) e l'utente autorizzato a lanciare l'analisi, viene effettuata attraverso il file \textit{sonar-project.properties} che deve essere presente all'interno del progetto. In particolare, le informazioni contenute sono le seguenti:
 \begin{itemize}
 	\item 	sonar.projectKey: chiave del progetto
 	\item 	sonar.organization: nome dell'organizzazione
@@ -108,14 +108,15 @@ per avviare l'analisi ed una volta che questa è terminata il risultato sarà vi
 	\label{fig:analisi}
 \end{figure}
 
-\textbf{SonarCloud}, al pari di \textbf{SonarQube}, consente di visualizzare configurare i \textbf{Quality Profiles} e i \textbf{Quality Gates}, ossia l' insieme di regole che definiscano il livello di qualità che deve essere rispettato dal progetto in analisi. Nel caso in cui tali regole non siano rispettate, il risultato sarà il fallimento dell'analisi. E\' possibile utilizzare le regole di default. 
+\textbf{SonarCloud}, al pari di \textbf{SonarQube}, consente di visualizzare configurare i \textbf{Quality Profiles} e i \textbf{Quality Gates}, ossia l' insieme di regole che definiscano il livello di qualità che deve essere rispettato dal progetto in analisi. Nel caso in cui tali regole non siano rispettate, il risultato sarà il fallimento dell'analisi. E'\ possibile utilizzare le regole di default. 
 
 \subsection{SonarCloud Web API}
 \textbf{SonarCloud} fornisce una Web API per recuperare le informazioni relative ad un determinato progetto, restituendole in formato JSON. L'API utilizza i classici metodi HTTP come GET , POST e DELETE per identificare il tipo di azione che deve essere realizzata. 
 
 A titolo esemplificativo si mostra una query di richiesta:
 \begin{verbatim}
-https://sonarcloud.io/api/measures/component_tree?component=keyJabref4.2&metricKeys=sqale_index&ps=100&p=1
+https://sonarcloud.io/api/measures/component_tree?
+component=keyJabref4.2&metricKeys=sqale_index&ps=100&p=1
 \end{verbatim}
 
 in cui:
