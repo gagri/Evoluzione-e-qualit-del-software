@@ -1,39 +1,39 @@
 \section{Clone}
-Un clone è una sequenza di istruzioni duplicata in più punti di un codice sorgente quindi, questo significa che, è stato effettuato un "copia e incolla" del codice in un altro punto della stessa classe oppure in un'altra classe. La presenza di cloni comporta un grave difetto che consiste nel fatto che se viene individuato un bug in un frammento di codice, questo affligge tutti gli altri frammenti di codice che sono stati duplicati. La risoluzione di questo problema mediante refactoring potrebbe essere problematica in quanto il refactoring di alcuni cloni potrebbe essere rischioso a causa della possibilità di introdurre errori. Esistono però diverse motivazioni che spingono gli sviluppatori ad inserire del codice clonato nei sistemi software, in particolare:
+Un clone è una sequenza di istruzioni duplicata in più punti di un codice sorgente quindi, questo significa che è stato effettuato un "copia e incolla" del codice in un altro punto della stessa classe oppure in un'altra classe. La presenza di cloni comporta un grave difetto che consiste nel fatto che se viene individuato un bug in un frammento di codice, questo affligge tutti gli altri frammenti di codice duplicati. La risoluzione di questo problema mediante refactoring potrebbe essere problematica a causa della possibilità di introdurre errori. Esistono però diverse motivazioni che spingono gli sviluppatori ad inserire del codice clonato nei sistemi software, in particolare:
 \begin{enumerate}
-\item	Strategia di sviluppo.
-\item	Benefici di manutenzione.
-\item	Superare i limiti linguistici sottostanti.
-\item	Clonazione per incidente.
+\item	strategia di sviluppo;
+\item	benefici di manutenzione;
+\item	superare i limiti linguistici sottostanti;
 \end{enumerate}
 D'altra parte, però, i cloni del codice possono avere gravi conseguenze sulla qualità, la riusabilità e la manutenibilità di un sistema software. In particolare, si ha:
 \begin{enumerate}
-\item	Aumento della probabilità di propagazione dei bug.
-\item	Aumento della probabilità di introdurre un nuovo bug.
-\item	Aumento della probabilità di cattiva progettazione.
-\item	Aumento della difficoltà nel miglioramento/modifica del sistema.
-\item	Aumento dei costi di manutenzione.
-\item	Aumento dei requisiti di risorse.
+\item	aumento della probabilità di propagazione dei bug;
+\item	aumento della probabilità di introdurre un nuovo bug;
+\item	aumento della probabilità di cattiva progettazione;
+\item	aumento della difficoltà nel miglioramento/modifica del sistema;
+\item	aumento dei costi di manutenzione.
+\item	aumento dei requisiti di risorse.
 \end{enumerate}
 Si hanno quattro tipologie di cloni suddivise in due aree:
 \begin{enumerate}
-\item Basato sulla somiglianza testuale:
+\item Classificazione basata sulla somiglianza testuale:
 \begin{itemize}
-\item	Tipo I: frammenti di codice identico tranne le variazioni negli spazi bianchi (potrebbero anche essere variazioni nel layout) e commenti. Non è possibile usare una tecniche di confronto linea per linea per individuarlo.
+\item	Tipo I: frammenti di codice identico tranne che per le variazioni negli spazi bianchi (potrebbero anche essere variazioni nel layout) e nei commenti. Non è possibile usare una tecniche di confronto linea per linea per individuarlo.
 \item	Tipo II: frammenti strutturalmente/sintatticamente identici ad eccezione delle variazioni di identificatori, letterali, tipi, layout e commenti. I cloni di questo tipo hanno la stessa struttura sintattica.
-\item	Tipo III: frammenti copiati con ulteriori modifiche. Le dichiarazioni possono essere modificate aggiunte o rimosse in aggiunta alle variazioni di identificatori, letterali, tipi, layout e commenti.
+\item	Tipo III: frammenti copiati con ulteriori modifiche. Le dichiarazioni possono essere modificate, aggiunte o rimosse in aggiunta alle variazioni di identificatori, letterali, tipi, layout e commenti.
 \end{itemize}
-\item Basato sulla somiglianza funzionale: se le funzionalità dei due frammenti di codice sono identiche o simili, cioè hanno condizioni pre e post simili, vengono chiamati cloni semantici e si riferiscono a cloni di tipo IV.
+\item Classificazione basata sulla somiglianza funzionale: se le funzionalità dei due frammenti di codice sono identiche o simili, cioè hanno condizioni pre e post simili, vengono chiamati cloni semantici e si riferiscono a cloni di tipo IV.
 \begin{itemize}
-\item	Tipo IV: due o più frammenti di codice che eseguono lo stesso calcolo ma implementati attraverso diverse varianti sintattiche. La complessità analitica e la sofisticazione nel rilevare i cloni aumenta dal Tipo I al Tipo IV, mentre il Tipo IV è il più alto. Il rilevamento dei cloni di tipo IV è il più difficile.
+\item	Tipo IV: due o più frammenti di codice che eseguono lo stesso calcolo ma implementati attraverso diverse varianti sintattiche. 
 \end{itemize}
 \end{enumerate}
-Sebbene in generale ci siano solo quattro tipi di cloni, vengono usati termini diversi quando ci si riferisce ai cloni.
+La complessità analitica e la sofisticazione nel rilevare i cloni aumenta dal Tipo I al Tipo IV, mentre il Tipo IV è il più alto. Il rilevamento dei cloni di tipo IV è il più difficile.\\
+Sebbene in generale ci siano solo quattro tipi di cloni, vengono usati termini diversi quando ci si riferisce ai cloni stessi:
 \begin{itemize}
-\item	Exact clones: per fare riferimento ai frammenti di codice identici. Tipicamente clone di tipo I.
-\item	Near-Miss Clones: per fare riferimento a frammenti di codice identici con dichiarazioni aggiunte, cancellate e/o modificate. Fondamentalmente, tutti i cloni di Tipo II sono cloni near-miss.
-\item	Renamed clones: quando nomi di identificatori, valori letterali, commenti o spazi bianchi modifiche nei frammenti copiati. Essenzialmente un clone di tipo II.
-\item	Parametrized clone (o p-match): è un clone rinominato con sistematica ridenominazione. Un sottoinsieme di cloni di tipo II.
+\item	exact clones: per fare riferimento ai frammenti di codice identici. Tipicamente clone di tipo I;
+\item	near-Miss Clones: per fare riferimento a frammenti di codice identici con dichiarazioni aggiunte, cancellate e/o modificate. Fondamentalmente, tutti i cloni di Tipo II sono cloni near-miss;
+\item	renamed clones: quando nomi di identificatori, valori letterali, commenti o spazi bianchi modifiche nei frammenti copiati. Essenzialmente un clone di tipo II;
+\item	parametrized clone (o p-match): è un clone rinominato con sistematica ridenominazione. Un sottoinsieme di cloni di tipo II.
 \end{itemize}
 L'analisi dei cloni è stata effettuata mediante l'uso del software Nicad che consente l'estrazione dei cloni di tipo I, II e III. L'output ottenuto da Nicad è stato manipolato attraverso un parser scritto in python per estrapolare solo le informazioni d'interesse.
 

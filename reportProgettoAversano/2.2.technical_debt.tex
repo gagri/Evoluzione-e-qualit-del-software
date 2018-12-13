@@ -1,36 +1,37 @@
 \section{Technical Debt}
-Il technical debt, conosciuto anche come code debt, è la spesa totale che un'organizzazione paga a causa di un'architettura inadeguata o di processi di sviluppo del software (?). Se il debito non viene risolto, continua ad accumulare interesse, rendendo così più problematico implementare i cambiamenti futuri. Diversi fattori rendono sempre più difficile la gestione o l'aggiornamento del codice sorgente, inclusa la complessità dell'architettura e le attuali pratiche di sviluppo. I fattori che contribuiscono all'incremento del technical debt sono:
+Il technical debt, conosciuto anche come code debt, è la spesa totale che un'organizzazione paga a causa di un'architettura inadeguata o di processi di sviluppo del software inefficienti. Se il debito non viene risolto, continua ad accumulare interesse, rendendo così più problematico implementare i cambiamenti futuri. Diversi fattori rendono sempre più difficile la gestione o l'aggiornamento del codice sorgente, inclusa la complessità dell'architettura e le pratiche di sviluppo. I fattori che contribuiscono all'incremento del technical debt sono:
 \begin{itemize}
-\item Pressioni aziendali.
-\item Processi insufficienti.
-\item Funzioni hard-coded.
-\item Insiemi di test scadenti.
-\item Documentazione di codice scadente.
-\item Mancanza di collaborazione.
-\item Refactoring differito.
+\item pressioni aziendali;
+\item processi insufficienti;
+\item funzioni hard-coded;
+\item insiemi di test scadenti;
+\item documentazione di codice scadente;
+\item mancanza di collaborazione;
+\item refactoring differito.
 \end{itemize}
-Le date di rilascio aggressive fanno sì che le modifiche vengano ignorate o messe in attesa, inoltre, le funzioni hard-coded creano applicazioni non flessibili che è impossibile aggiornare nei tempi previsti. Codice scarsamente documentato, test insufficienti e comunicazione minima aumentano il technical debt perché il team deve dedicare più tempo a trovare o risolvere problemi dopo il rilascio. Ogni fattore aumenta il costo totale dell'azienda e crea un fattore di spesa in continua crescita per la tua organizzazione. Lo strumento utilizzato per analizzare il technical debt è SonarCloud cioè la versione online di SonarQube. SonarQube, e di conseguenza SonarCloud, utilizza il metodo SQALE per calcolare il technical debt; questo metodo si basa esclusivamente su regole, questo significa che se si vuole gestire tutto il technical debt con SQALE, bisogna prima abilitare le regole nel repository Common SonarQube che contrassegna:
+Le date di rilascio aggressive fanno sì che le modifiche vengano ignorate o messe in attesa ed inoltre, le funzioni hard-coded creano applicazioni non flessibili che è impossibile aggiornare nei tempi previsti. Codice scarsamente documentato, test insufficienti e comunicazione minima aumentano il technical debt in quanto il team deve dedicare più tempo a trovare o risolvere problemi dopo il rilascio.\\ 
+Lo strumento utilizzato per analizzare il technical debt è SonarCloud cioè la versione online di SonarQube. SonarQube, e di conseguenza SonarCloud, utilizza il metodo SQALE per calcolare il technical debt. Tale metodo è basato esclusivamente su regole e questo significa che se si vuole gestire tutto il technical debt con SQALE, bisogna prima abilitare le regole nel repository Common SonarQube che contrassegna:
 \begin{itemize}
-\item Blocchi duplicati.
-\item Casi di test falliti.
-\item Numero di casi di test insufficiente a coprire i branch.
-\item Densità di commenti insufficiente.
-\item Numero di test insufficiente a coprire le linee di codice.
-\item Casi di test saltati.
+\item blocchi duplicati;
+\item casi di test falliti;
+\item numero di casi di test insufficiente a coprire i branch;
+\item densità di commenti insufficiente;
+\item numero di test insufficiente a coprire le linee di codice;
+\item casi di test saltati.
 \end{itemize}
-Tali regole si trovano nel repository Common SonarQube perché sono comuni a tutte le lingue. Una volta abilitati è possibile tenere traccia di tutti i difetti di qualità e monitorare il debito tecnico, che il metodo SQALE misura in giorni.
+Tali regole si trovano nel repository Common SonarQube perché sono comuni a tutte le lingue. Una volta abilitate è possibile tenere traccia di tutti i difetti di qualità e monitorare il debito tecnico, che il metodo SQALE misura in giorni.
 \subsection{Il metodo Sqale}
-Il metodo SQALE è stato sviluppato per rispondere a un'esigenza generica e permanente di valutazione della qualità del codice sorgente. Standard come ISO 9126 e ISO / IEC 15939 non forniscono un supporto efficace. Il metodo SQALE è mirato per un'implementazione automatizzata. È generico e indipendente da linguaggio e strumenti.  Il metodo SQALE è particolarmente dedicato alla gestione del debito tecnico (o del debito di progettazione) degli sviluppi del software. Questo metodo permette di:
+Il metodo SQALE è stato sviluppato per rispondere a un'esigenza generica e permanente di valutazione della qualità del codice sorgente visto che standard come ISO 9126 e ISO / IEC 15939 non forniscono un supporto efficace. Si tratta di un metodo generico ed indipendente da linguaggio e strumenti particolarmente dedicato alla gestione del debito tecnico (o del debito di progettazione) degli sviluppi del software. Esso permette di:
 \begin{itemize}
-\item Definire chiaramente cosa crea il debito tecnico.
-\item Per stimare correttamente questo debito.
-\item Per analizzare questo debito sul punto di vista tecnico e di business.
-\item Offrire strategie di prioritizzazione diverse che consentono di stabilire un piano di ammortamento ottimale. 
+\item definire chiaramente cosa crea il debito tecnico;
+\item stimare correttamente il debito;
+\item analizzare tale debito dal punto di vista tecnico e di business;
+\item offrire strategie di prioritizzazione diverse che consentono di stabilire un piano di ammortamento ottimale. 
 \end{itemize}
 Il modello di qualità SQALE viene utilizzato per formulare e organizzare i requisiti non funzionali relativi alla qualità del codice. È organizzato in tre livelli gerarchici:
 \begin{enumerate}
-\item Il primo livello è composto da caratteristiche.
-\item Il secondo di sottocaratteristiche.
-\item Il terzo livello è composto da requisiti relativi agli attributi interni del codice sorgente.
+\item il primo livello è composto da caratteristiche;
+\item il secondo di sotto-caratteristiche;
+\item il terzo livello è composto da requisiti relativi agli attributi interni del codice sorgente.
 \end{enumerate}
-Questi requisiti di solito dipendono dal contesto e dalla lingua del software. Qualsiasi violazione di questi requisiti induce il debito tecnico.
+Tali requisiti di solito dipendono dal contesto e dalla lingua del software. Qualsiasi violazione di questi requisiti induce il debito tecnico.
