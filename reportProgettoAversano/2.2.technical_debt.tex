@@ -1,5 +1,5 @@
 \section{Technical Debt}
-Il technical debt, conosciuto anche come code debt, è la spesa totale che un'organizzazione paga a causa di un'architettura inadeguata o di processi di sviluppo del software inefficienti. Se il debito non viene risolto, continua ad accumulare interesse, rendendo così più problematico implementare i cambiamenti futuri. Diversi fattori rendono sempre più difficile la gestione o l'aggiornamento del codice sorgente, inclusa la complessità dell'architettura e le pratiche di sviluppo. I fattori che contribuiscono all'incremento del technical debt sono:
+Il technical debt, conosciuto anche come code debt, è la spesa totale che un'organizzazione paga a causa di un'architettura inadeguata o di processi di sviluppo del software inefficienti. Se il debito non viene risolto continua ad accumulare interesse rendendo così più problematico implementare i cambiamenti futuri. Diversi fattori rendono sempre più difficile la gestione o l'aggiornamento del codice sorgente, inclusa la complessità dell'architettura e le pratiche di sviluppo. I fattori che contribuiscono all'incremento del technical debt sono:
 \begin{itemize}
 \item pressioni aziendali;
 \item processi insufficienti;
@@ -9,7 +9,7 @@ Il technical debt, conosciuto anche come code debt, è la spesa totale che un'or
 \item mancanza di collaborazione;
 \item refactoring differito.
 \end{itemize}
-Le date di rilascio aggressive fanno sì che le modifiche vengano ignorate o messe in attesa ed inoltre, le funzioni hard-coded creano applicazioni non flessibili che è impossibile aggiornare nei tempi previsti. Codice scarsamente documentato, test insufficienti e comunicazione minima aumentano il technical debt in quanto il team deve dedicare più tempo a trovare o risolvere problemi dopo il rilascio.\\ 
+Le date di rilascio aggressive fanno sì che le modifiche vengano ignorate o messe in attesa ed inoltre, le funzioni hard-coded creano applicazioni non flessibili che è impossibile aggiornare nei tempi previsti. Codice scarsamente documentato, test insufficienti e comunicazione minima aumentano il technical debt in quanto il team deve dedicare più tempo per trovare o per risolvere problemi dopo il rilascio.\\ 
 Lo strumento utilizzato per analizzare il technical debt è SonarCloud cioè la versione online di SonarQube. SonarQube, e di conseguenza SonarCloud, utilizza il metodo SQALE per calcolare il technical debt. Tale metodo è basato esclusivamente su regole e questo significa che se si vuole gestire tutto il technical debt con SQALE, bisogna prima abilitare le regole nel repository Common SonarQube che contrassegna:
 \begin{itemize}
 \item blocchi duplicati;
@@ -19,7 +19,7 @@ Lo strumento utilizzato per analizzare il technical debt è SonarCloud cioè la 
 \item numero di test insufficiente a coprire le linee di codice;
 \item casi di test saltati.
 \end{itemize}
-Tali regole si trovano nel repository Common SonarQube perché sono comuni a tutte le lingue. Una volta abilitate è possibile tenere traccia di tutti i difetti di qualità e monitorare il debito tecnico, che il metodo SQALE misura in giorni.
+Tali regole si trovano nel repository Common SonarQube perché sono comuni a tutte i linguaggi di programmazione. Una volta abilitate è possibile tenere traccia di tutti i difetti di qualità e monitorare il debito tecnico, che il metodo SQALE misura in giorni.
 \subsection{Il metodo Sqale}
 Il metodo SQALE è stato sviluppato per rispondere a un'esigenza generica e permanente di valutazione della qualità del codice sorgente visto che standard come ISO 9126 e ISO / IEC 15939 non forniscono un supporto efficace. Si tratta di un metodo generico ed indipendente da linguaggio e strumenti. Esso permette di:
 \begin{itemize}
