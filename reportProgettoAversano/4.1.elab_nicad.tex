@@ -17,12 +17,12 @@ Il file di configurazione consente di specificare il tipo di clone da individuar
 \end{itemize}
 A partire da questa collezione di file XML si è proceduto a costruire un file CSV che fosse in grado di riassumere tutte le informazioni desiderate. Tale operazione è stata effettuata attraverso un parser\footnote{ParserXML.py} che preleva le informazioni d'interesse, in particolare sono state estratte le seguenti informazioni:
 \begin{itemize}
-\item l'identificativo della classe
-\item l'identificativo del singolo clone
-\item il path del file
-\item la startline
-\item la endline
-\item e la similarità
+\item l'identificativo della classe;
+\item l'identificativo del singolo clone;
+\item il path del file;
+\item la startline;
+\item la endline;
+\item e la similarità.
 \end{itemize} 
 È stata aggiunta anche la versione del sistema analizzato e il tipo di clone. 
 È stato creato un ulteriore parser\footnote{ParserCSV.py} che consente di rimuovere gli errori di classificazione commessi da Nicad. Quest'ultimo, infatti, tende a classificare alcuni cloni come afferenti a più tipi. Ad esempio, può classificare un clone di tipo 1 anche come clone di tipo 2 e 3. Il parser identifica i cloni ripetuti e li elimina dal tipo superiore. Ad esempio, se un clone viene identificato come tipo 1 e 2 il parser procede all'eliminazione del clone di tipo 2.

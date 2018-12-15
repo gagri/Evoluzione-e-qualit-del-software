@@ -25,7 +25,7 @@ La prima analisi effettuata sui dati ricavati dall'elaborazione dei risultati ot
 \end{figure}
 Si nota dunque che l'unico dato anomalo si ha sulla versione $4.2$ di JabRef in cui il numero di cloni diminuisce rispetto alla versione precedente. Questo risultato non va però ad inficiare il trend verificato nelle analisi degli altri progetti in quanto si nota che nella versione $4.3$ vi è non solo un aumento rispetto alla versione $4.2$, ma addirittura un incremento rispetto a tutte le precedenti versioni. 
 
-La seconda analisi ha riguardato il \textbf{numero di cloni di ogni tipo} per le $4$ versioni di ciascuno dei progetti presi in considerazione. In linea di massima il numero di cloni di tipo $3$ è sempre maggiore rispetto a quello dei cloni di tipo $1$ e $2$. In particolare si ha che:
+La seconda analisi ha riguardato il \textbf{numero di cloni di ogni tipo} per le $4$ versioni di ciascuno dei progetti presi in considerazione. In linea di massima, il numero di cloni di tipo $3$ è sempre maggiore rispetto a quello dei cloni di tipo $1$ e $2$. In particolare si ha che:
 \begin{itemize}
 	\item in \textbf{DnsJava}, come mostrato in \autoref{fig:tipiCloniDnsJava}, si hanno:
 		\begin{itemize}
@@ -93,7 +93,7 @@ Procedendo nell'analisi è stato individuato il numero di file in cui sono prese
 		\item versione 1.2.50: 598 file con cloni e 2047 senza cloni;
 	\end{itemize}
 \end{itemize}
-A partire dai dati raccolti sono state considerate le percentuali di file con cloni e senza cloni; è stato osservato che si ha una maggiore percentuale di file senza cloni. La minore percentuale di file con cloni sul totale si ha in jabRef.
+A partire dai dati raccolti sono state considerate le percentuali di file con cloni e senza cloni; è stato osservato che si ha una maggiore percentuale di file senza cloni. La minore percentuale di file con cloni sul totale si ha in jabRef. \\
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/PercentualeFileCloni.png}
@@ -136,7 +136,7 @@ Si è proceduto all'analisi della presenza di code smell nei file con e senza cl
 		\item versione 1.2.50: in media, il numero di code smell è 30 nei file senza cloni e 184 in quelli con i cloni;
 	\end{itemize}
 \end{itemize}
-Si è visto che nei file contenenti cloni il numero medio di code smell è in generale maggiore rispetto al caso in cui il file non contiene i cloni stessi. La differenza risulta maggiormente evidente in \textbf{FastJson}.
+Si è visto che nei file contenenti cloni il numero medio di code smell è in generale maggiore rispetto al caso in cui il file non contiene i cloni stessi. La differenza risulta maggiormente evidente in \textbf{FastJson}.\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75, trim = 0cm 0cm 0cm 0cm, clip=true]{Grafici_dnsJava/CodeSmells.png}
@@ -179,7 +179,7 @@ La stessa analisi è stata effettuata prendendo in considerazione il technical d
 		\item versione 1.2.50: in media, il techical debt è di 125 minuti nei file senza cloni e 1143 in quelli con i cloni;
 	\end{itemize}
 \end{itemize}
-Si nota che il tempo necessario per gestire, e quindi manutenere una classe in cui sono presenti dei cloni, è più alto rispetto al caso in cui nella classe non è presente il codice clonato. Al fine di validare tale risultato è stata effettuata un'ulteriore analisi. In particolare, per ogni versione di ogni progetto, è stato considerato il rapporto tra code smell e techical debt. I risultati ottenuti sono i seguenti:
+Si nota che il tempo necessario per gestire e manutenere una classe in cui sono presenti dei cloni, è più alto rispetto al caso in cui nella classe non è presente il codice clonato. Al fine di validare tale risultato è stata effettuata un'ulteriore analisi. In particolare, per ogni versione di ogni progetto, è stato considerato il rapporto tra code smell e techical debt. I risultati ottenuti sono i seguenti:
 %%%ANALISI RAPPORTO%%%%
 \begin{itemize}
 	\item in DnsJava, come mostrato in \autoref{fig:rapDnsJava}, il rapporto tra technical debt e code smell è pari a circa 4 minuti nel caso di file senza cloni e a 5 nel caso di file con cloni in tutte e tre le versioni;

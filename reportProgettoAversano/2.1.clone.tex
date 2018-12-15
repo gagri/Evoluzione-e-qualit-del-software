@@ -11,7 +11,7 @@ D'altra parte, però, i cloni del codice possono avere gravi conseguenze sulla q
 \item	aumento della probabilità di introdurre un nuovo bug;
 \item	aumento della probabilità di cattiva progettazione;
 \item	aumento della difficoltà nel miglioramento/modifica del sistema;
-\item	aumento dei costi di manutenzione.
+\item	aumento dei costi di manutenzione;
 \item	aumento dei requisiti di risorse.
 \end{enumerate}
 Si hanno quattro tipologie di cloni suddivise in due aree:
@@ -22,12 +22,12 @@ Si hanno quattro tipologie di cloni suddivise in due aree:
 \item	Tipo II: frammenti strutturalmente/sintatticamente identici ad eccezione delle variazioni di identificatori, letterali, tipi, layout e commenti. I cloni di questo tipo hanno la stessa struttura sintattica.
 \item	Tipo III: frammenti copiati con ulteriori modifiche. Le dichiarazioni possono essere modificate, aggiunte o rimosse in aggiunta alle variazioni di identificatori, letterali, tipi, layout e commenti.
 \end{itemize}
-\item Classificazione basata sulla somiglianza funzionale: se le funzionalità dei due frammenti di codice sono identiche o simili, cioè hanno condizioni pre e post simili, vengono chiamati cloni semantici e si riferiscono a cloni di tipo IV.
+\item Classificazione basata sulla somiglianza funzionale: se le funzionalità dei due frammenti di codice sono identiche o simili, cioè hanno condizioni pre e post simili, si parla di cloni semantici e questi vengono identificati come cloni di tipo IV.
 \begin{itemize}
 \item	Tipo IV: due o più frammenti di codice che eseguono lo stesso calcolo ma implementati attraverso diverse varianti sintattiche. 
 \end{itemize}
 \end{enumerate}
-La complessità analitica e la sofisticazione nel rilevare i cloni aumenta dal Tipo I al Tipo IV, mentre il Tipo IV è il più alto. Il rilevamento dei cloni di tipo IV è il più difficile.\\
+La complessità analitica e la sofisticazione nel rilevare i cloni aumenta dal Tipo I al Tipo IV. Il rilevamento dei cloni di tipo IV è quindi il più difficile.\\
 Sebbene in generale ci siano solo quattro tipi di cloni, vengono usati termini diversi quando ci si riferisce ai cloni stessi:
 \begin{itemize}
 \item	exact clones: per fare riferimento ai frammenti di codice identici. Tipicamente clone di tipo I;
