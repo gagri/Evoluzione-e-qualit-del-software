@@ -10,29 +10,31 @@ Il technical debt, conosciuto anche come code debt, è la spesa totale che un'or
 \item refactoring differito.
 \end{itemize}
 Le date di rilascio aggressive fanno sì che le modifiche vengano ignorate o messe in attesa ed inoltre, le funzioni hard-coded creano applicazioni non flessibili che è impossibile aggiornare nei tempi previsti. Codice scarsamente documentato, test insufficienti e comunicazione minima aumentano il technical debt in quanto il team deve dedicare più tempo per trovare o per risolvere problemi dopo il rilascio.\\ 
-Lo strumento utilizzato per analizzare il technical debt è SonarCloud cioè la versione online di SonarQube. SonarQube, e di conseguenza SonarCloud, utilizza il metodo SQALE per calcolare il technical debt. Tale metodo è basato esclusivamente su regole e questo significa che se si vuole gestire tutto il technical debt con SQALE, bisogna prima abilitare le regole nel repository Common SonarQube che contrassegna:
-\begin{itemize}
-\item blocchi duplicati;
-\item casi di test falliti;
-\item numero di casi di test insufficiente a coprire i branch;
-\item densità di commenti insufficiente;
-\item numero di test insufficiente a coprire le linee di codice;
-\item casi di test saltati.
-\end{itemize}
-Tali regole si trovano nel repository Common SonarQube perché sono comuni a tutte i linguaggi di programmazione. Una volta abilitate è possibile tenere traccia di tutti i difetti di qualità e monitorare il debito tecnico, che il metodo SQALE misura in giorni.
+Lo strumento utilizzato per analizzare il technical debt è SonarCloud cioè la versione online di SonarQube. SonarQube, e di conseguenza SonarCloud, utilizza il metodo SQALE per calcolare il technical debt. 
 \input{squale}
-\subsection{Il metodo Sqale}
-Il metodo SQALE è stato sviluppato per rispondere a un'esigenza generica e permanente di valutazione della qualità del codice sorgente visto che standard come ISO 9126 e ISO / IEC 15939 non forniscono un supporto efficace. Si tratta di un metodo generico ed indipendente da linguaggio e strumenti. Esso permette di:
-\begin{itemize}
-\item definire chiaramente cosa crea il debito tecnico;
-\item stimare correttamente il debito;
-\item analizzare tale debito dal punto di vista tecnico e di business;
-\item offrire strategie di prioritizzazione diverse che consentono di stabilire un piano di ammortamento ottimale. 
-\end{itemize}
-Il modello di qualità SQALE viene utilizzato per formulare e organizzare i requisiti non funzionali relativi alla qualità del codice. È organizzato in tre livelli gerarchici:
-\begin{enumerate}
-\item il primo livello è composto da caratteristiche;
-\item il secondo di sotto-caratteristiche;
-\item il terzo livello è composto da requisiti relativi agli attributi interni del codice sorgente.
-\end{enumerate}
-Tali requisiti di solito dipendono dal contesto e dalla lingua del software. Qualsiasi violazione di questi requisiti induce il debito tecnico.
+%Tale metodo è basato esclusivamente su regole e questo significa che se si vuole gestire tutto il technical debt con SQALE, bisogna prima abilitare le regole nel repository Common SonarQube che contrassegna:
+%\begin{itemize}
+%\item blocchi duplicati;
+%\item casi di test falliti;
+%\item numero di casi di test insufficiente a coprire i branch;
+%\item densità di commenti insufficiente;
+%\item numero di test insufficiente a coprire le linee di codice;
+%\item casi di test saltati.
+%\end{itemize}
+%Tali regole si trovano nel repository Common SonarQube perché sono comuni a tutte i linguaggi di programmazione. Una volta abilitate è possibile tenere traccia di tutti i difetti di qualità e monitorare il debito tecnico, che il metodo SQALE misura in giorni.
+
+%\subsection{Il metodo Sqale}
+%Il metodo SQALE è stato sviluppato per rispondere a un'esigenza generica e permanente di valutazione della qualità del codice sorgente visto che standard come ISO 9126 e ISO / IEC 15939 non forniscono un supporto efficace. Si tratta di un metodo generico ed indipendente da linguaggio e strumenti. Esso permette di:
+%\begin{itemize}
+%\item definire chiaramente cosa crea il debito tecnico;
+%\item stimare correttamente il debito;
+%\item analizzare tale debito dal punto di vista tecnico e di business;
+%\item offrire strategie di prioritizzazione diverse che consentono di stabilire un piano di ammortamento ottimale. 
+%\end{itemize}
+%Il modello di qualità SQALE viene utilizzato per formulare e organizzare i requisiti non funzionali relativi alla qualità del codice. È organizzato in tre livelli gerarchici:
+%\begin{enumerate}
+%\item il primo livello è composto da caratteristiche;
+%\item il secondo di sotto-caratteristiche;
+%\item il terzo livello è composto da requisiti relativi agli attributi interni del codice sorgente.
+%\end{enumerate}
+%Tali requisiti di solito dipendono dal contesto e dalla lingua del software. Qualsiasi violazione di questi requisiti induce il debito tecnico.
